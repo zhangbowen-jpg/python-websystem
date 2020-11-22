@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/echarts.min.js"></script>
+    <style>
+
+
+       #mid_left {
+           width:300px;
+           height:430px;
+           position: absolute;
+           background-color: rgba(238, 235, 230, 0.84);
+           margin:175px 960px;
+           border-radius: 20px;
+           z-index:99999;
+       }
+
+       #mid_left .title {
+           width:150px;
+           height:90px;
+           position: absolute;
+           margin: 50px 85px;
+           font-size: 25px;
+       }
+
+       #mid_left .name {
+           width:200px;
+           height:50px;
+           position: absolute;
+           margin: 140px 68px;
+       }
+
+       #mid_left .password {
+           width:200px;
+           height:50px;
+           position: absolute;
+           margin: 210px 68px;
+       }
+
+       #mid_left .login1 {
+           width: 50px;
+           height: 50px;
+           position: absolute;
+           margin: 290px 75px;
+       }
+
+        #mid_left .establish {
+           width: 50px;
+           height: 50px;
+           position: absolute;
+           margin: 290px 175px;
+       }
+
+       #mid_right {
+           width:1100px;
+           height:560px;
+           position: absolute;
+           margin: 100px 200px;
+       }
+
+       #mid_right img{
+           width:1100px;
+           height:560px;
+           position: absolute;
+           margin: 0px 0px;
+       }
+
+
+    </style>
+</head>
+<body background='/static/black-bg.jpg' style="background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+<div id="mid_left"><span class="title">管理员登录</span>
+    <div class="name"><input id="name" type="text" placeholder="请输入账号"></div>
+    <div class="password"><input id="password" type="password" placeholder="请输入密码"></div>
+    <button id="login" class="login1">登录</button>
+    <button id="establish" class="establish">创建</button>
+</div>
+
+<div id="mid_right">
+    <img src="/static/login-first.jpg" alt=""/>
+</div>
+
+</body>
+<script>
+    $('#login').click(function () {
+        $.ajax({
+            url:'/login/log_in/',
+            type:'post',
+            dataType:'json',
+            data:{
+                name: $('#mid_left .name input').val(),
+                password: $('#mid_left .password input').val()
+            },
+            success: function (res) {
+                console.log(res);
+                alert(res.data);
+                if (res.check)
+                    window.location.href='/login/manager_page';
+            }
+        })
+    })
+
+    $('#establish').click(function () {
+        $.ajax({
+            url:'/login/establish',
+            type:'post',
+            dataType:'json',
+            data:{
+                name: $('#mid_left .name input').val(),
+                password: $('#mid_left .password input').val()
+            },
+            success: function (res) {
+                console.log(res);
+                alert(res.data);
+            }
+        })
+    })
+
+
+</script>
+</html>
+

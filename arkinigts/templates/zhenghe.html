@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>敌方单位一览</title>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/echarts.min.js"></script>
+
+    <style>
+
+        #h_left{
+            margin-left: 15px;
+        }
+        #h_left img{
+            float:left;
+        }
+
+        #div1 {
+            width:500px;
+            height: 50px;
+            position: absolute;
+            margin: 80px 960px;
+        }
+
+        #div1 input {
+            width:350px;
+            height: 40px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+
+        #div1 button{
+            width:100px;
+            height:48px;
+            position: absolute;
+            margin: -1px 360px;
+        }
+
+        #box {
+            width:1470px;
+            height:5000px;
+            position: absolute;
+            margin: 180px 10px;
+            background-color: white;
+        }
+
+        #box table{
+            width:1400px;
+            height:4980px;
+            position: absolute;
+            margin: 10px 40px;
+            font-size: 17px;
+        }
+
+        #operator_title {
+            width:600px;
+            height:120px;
+            position: absolute;
+            margin: 45px 400px;
+            font-size: 50px;
+            color:whitesmoke
+        }
+
+        #echarts {
+            width:500px;
+            height:200px;
+            position: absolute;
+            margin: 5200px 500px;
+        }
+
+        #echarts button {
+            width:400px;
+            height:100px;
+            position: absolute;
+            margin: 10px 50px;
+            font-size: 30px;
+        }
+
+        #div2 {
+            width:100px;
+            height:100px;
+            position: fixed;
+            margin: 590px 1400px;
+        }
+
+        #div2 img{
+            width:100px;
+            height:100px;
+            position: absolute;
+            margin:0px 0px;
+        }
+
+        #login {
+            width:300px;
+            height:50px;
+            position: absolute;
+            margin: 10px 1200px;
+        }
+
+        #login button {
+            width:150px;
+            height:50px;
+            position: absolute;
+            margin: 0px 60px;
+        }
+
+
+        #gif {
+            width:1800px;
+            height:1200px;
+            position:fixed;
+            background-color: white;
+            margin-left:-5px;
+            margin-top: -5px;
+        }
+
+        #gif img {
+            width:900px;
+            height:500px;
+            margin: 85px 315px;
+        }
+
+    </style>
+</head>
+<body background='/static/black-bg.jpg' style=" background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+<div id="gif" style="z-index: 999999"><img src="/static/zhenghe.gif" alt="" ></div>
+<div id="h_left"><img src="/static/ak.png" alt=""></div>
+<div id="operator_title">敌方数据一览</div>
+<div id="div1">
+    <input type="text" placeholder="请输入要查找的敌方单位:">
+    <button id="btn1">查询</button>
+</div>
+<div id="div2" style="z-index:999997">
+    <img src="/static/back.jpg" alt="" >
+</div>
+
+
+<div id="box">
+    <table border="1" cellspacing="0">
+    <thead>
+        <tr>
+            <td>序号</td>
+            <td>名称</td>
+            <td>地位</td>
+            <td>种类</td>
+            <td>能力</td>
+            <td>攻击力等级</td>
+            <td>耐久等级</td>
+            <td>防御力等级</td>
+            <td>法术抗性等级</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+    </tbody>
+    </table>
+</div>
+
+<div id="echarts">
+    <button id="btn2">前往柱状图数据分析</button>
+</div>
+
+<div id="login">
+    <button>管理员登录</button>
+</div>
+
+</body>
+
+
+<script>
+
+    $('#login button').click(function () {
+        window.location.href='/login/to_login';
+    });
+
+    $('#echarts button').click(function () {
+        window.location.href='/lsql/zhenghe_echart';
+    });
+    $('#div2 img').click(function () {
+        window.location.href='/home_page/home_page';
+    });
+    $('button').click(function ajax_2() {
+        $.ajax({
+            url:'/lsql/query_zh',
+            type:'get',
+            dataType:'json',
+            data: {
+                choose: $('input').val(),
+            },
+            success: function (res) {
+                console.log(res);
+                for(var i = 0;i<$("tbody tr").length;i++) {
+                    $("tbody tr:eq("+i+")").empty();
+                }
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].id + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].name + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].level + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].pace + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].power + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].attack + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].health + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].defined + '</td>');
+                $('tbody tr:eq(0)').append('<td>' + res.data[0].magic + '</td>');
+            }
+        })
+    });
+    function ShowDiv(){
+        $("#gif").show()
+    }
+    function HideDiv(){
+        $("#gif").hide()
+    }
+    $.ajax({
+        url: '/lsql/Show_zhenghe',
+        dataType: 'json',
+        Type: 'get',
+        beforeSend:function (){
+            ShowDiv();
+        },
+        complete:function () {
+            HideDiv();
+        },
+        success: function (res) {
+            console.log(res);
+            for (var j = 0; j < res.data.length; j++) {
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].id + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].name + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].level + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].pace + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].power + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].attack + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].health + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].defined + '</td>');
+                $('tbody tr:eq('+j+')').append('<td>' + res.data[j].magic + '</td>');
+            }
+        }
+    })
+
+</script>
+</html>

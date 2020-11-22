@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homepage</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #h_left{
+            margin-left: 15px;
+        }
+        #h_left img{
+            float:left;
+        }
+        #h_right {
+            width:450px;
+            height:100px;
+            position: absolute;
+            margin: 50px 550px;
+            font-size:50px;
+            color: rgba(0, 0, 0, 0.61);
+        }
+        #h_right1 {
+            width:200px;
+            height:100px;
+            position: absolute;
+            margin: 45px 1235px;
+            font-size:50px;
+        }
+        #h_right1 button{
+            width: 150px;
+            height: 50px;
+        }
+
+        #cl1 {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            margin: 150px -10px;
+        }
+
+        #cl1 .img1{
+            position: absolute;
+            margin: 10px 0px;
+        }
+
+        #cl1 .img2{
+            position: absolute;
+            margin: 130px 0px;
+        }
+
+        #cl1 .img3{
+            position: absolute;
+            margin: 250px 0px;
+        }
+
+        #cl2 {
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            margin:150px 300px;
+        }
+
+        #cl2 img{
+            position: absolute;
+            margin: 25px 85px;
+        }
+
+        #cl2 button {
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            margin: 315px 155px;
+            font-size: 15px;
+            font-weight:bold;
+        }
+
+        #cr1 {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            margin: 150px 1130px;
+        }
+
+        #cr1 .img1 {
+            position: absolute;
+            margin: 10px 0px;
+        }
+        #cr1 .img2 {
+            position: absolute;
+            margin: 130px 0px;
+        }
+        #cr1 .img3 {
+            position: absolute;
+            margin: 250px 0px;
+        }
+
+
+
+        #cr1 img{
+            position: absolute;
+            margin: 51px 50px;
+        }
+
+        #cr2 {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            margin: 150px 793px;
+        }
+
+        #cr2 img{
+            position: absolute;
+            margin: 25px 70px;
+        }
+
+        #cr2 button {
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            margin: 315px 150px;
+            font-size:15px;
+            font-weight:bold;
+        }
+
+        #bottom {
+            width:700px;
+            height: 150px;
+            position: absolute;
+            margin: 570px 435px ;
+        }
+
+        #bottom div {
+            width:400px;
+            height:100px;
+            position: absolute;
+            margin: 20px 150px;
+            color:white;
+            font-size: 35px;
+        }
+        #gif {
+            width:1800px;
+            height:1200px;
+            position:fixed;
+            background-color: white;
+            margin-left:-5px;
+            margin-top: -5px;
+        }
+
+        #gif img {
+            width:500px;
+            height:500px;
+            margin: 85px 500px;
+        }
+
+    </style>
+</head>
+<body background='/static/doctor1.jpg' style=" background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+<div id="gif" style="z-index: 999999"><img src="/static/longmen.gif" alt="" ></div>
+<div id="header">
+    <div id="h_left"><img src="/static/ak.png" alt=""></div>
+    <div id="h_right">明日方舟WIKI系统</div>
+    <div id="h_right1"><button><a href="https://ak.hypergryph.com/index">前往明日方舟官网</a></button></div>
+</div>
+<div id="center">
+    <div id="c_left">
+        <div id="cl1">
+            <img class="img1" src="/static/leishe.gif" alt="" style="width:380px;height:100px; display: block;" />
+            <img class="img2" src="/static/weiji.gif" alt="" style="width:380px;height:100px; display: block;" />
+            <img class="img3" src="/static/di6zhang.gif" alt="" style="width:380px;height:100px; display: block;" />
+        </div>
+        <div id="cl2">
+            <img src="/static/aknights.jpg" alt="" style="width:250px;height:250px;"/>
+            <button>干员一览</button>
+        </div>
+    </div>
+    <div id="c_right">
+        <div id="cr1">
+            <img class="img1" src="/static/talk.gif" alt="" style="width:380px;height:100px; display: block;" />
+            <img class="img2" src="/static/night.gif" alt="" style="width:380px;height:100px; display: block;" />
+            <img class="img3" src="/static/gold.gif" alt="" style="width:380px;height:100px; display: block;" />
+        </div>
+        <div id="cr2">
+            <img src="/static/zhenghe.jpg" alt="" style="width:250px;height:250px;"/>
+            <button>敌人一览</button>
+        </div>
+    </div>
+</div>
+<div id="bottom">
+    <div id="bottom_title">重铸未来，方舟启航</div>
+    <div id="pic4" style="width:660px;height: 150px;background: url('/static/title.jpg');margin: -20px -18px;display: none;"></div>
+</div>
+</body>
+<script>
+    function ShowDiv(){
+        $("#gif").show()
+    }
+    function HideDiv(){
+        $("#gif").hide()
+    }
+    $.ajax({
+        beforeSend:function (){
+            ShowDiv();
+        },
+        complete:function () {
+            HideDiv();
+        },
+    })
+
+    $('button:eq(1)').click(function () {
+        window.location.href='/home_page/operator_page';
+    });
+
+    $('button:eq(2)').click(function () {
+        window.location.href='/home_page/zhenghe_page';
+    });
+
+    $('#bottom_title').mouseenter(function () {
+        document.getElementById("bottom_title").style.display='none';
+        document.getElementById("pic4").style.display='block';
+    });
+
+    $('#bottom_title').mouseout(function () {
+        document.getElementById("bottom_title").style.display='block';
+        document.getElementById("pic4").style.display='none';
+    });
+
+</script>
+</html>

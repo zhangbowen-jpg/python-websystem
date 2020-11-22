@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据管理界面</title>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/echarts.min.js"></script>
+    <style>
+        #add_op {
+            width:220px;
+            height:500px;
+            position: absolute;
+            margin: 50px 350px;
+            background-color: white;
+        }
+        #add_op .title{
+            width:150px;
+            height: 50px;
+            position: absolute;
+            margin: 20px 60px;
+            font-size:20px;
+        }
+        #add_op .input{
+            width:200px;
+            height: 350px;
+            position: absolute;
+            margin: 100px 5px;
+        }
+
+        #add_op .input .id{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: -30px 0px;
+        }
+
+        #add_op .input .name{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+
+        #add_op .input .place{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 32px 0px;
+        }
+
+        #add_op .input .health{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 64px 0px;
+        }
+
+        #add_op .input .attack{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 96px 0px;
+        }
+
+        #add_op .input .defined{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 128px 0px;
+        }
+
+        #add_op .input .magic{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 160px 0px;
+        }
+
+        #add_op .input .a_time{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 192px 0px;
+        }
+
+        #add_op .input .s_cost{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 224px 0px;
+        }
+
+        #add_op .input .blocked{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 256px 0px;
+        }
+        #add_op .input .between{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 288px 0px;
+        }
+
+        #add_op .input button{
+            width:100px;
+            height:20px;
+            position: absolute;
+            margin: 330px 50px;
+        }
+
+        #update_op {
+            width:220px;
+            height:500px;
+            position: absolute;
+            margin: 50px 650px;
+            background-color: white;
+        }
+        #update_op .title{
+            width:150px;
+            height: 50px;
+            position: absolute;
+            margin: 20px 60px;
+            font-size:20px;
+        }
+        #update_op .input{
+            width:200px;
+            height: 350px;
+            position: absolute;
+            margin: 100px 5px;
+        }
+
+        #update_op .input .name{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+
+        #update_op .input .place{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 32px 0px;
+        }
+
+        #update_op .input .health{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 64px 0px;
+        }
+
+        #update_op .input .attack{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 96px 0px;
+        }
+
+        #update_op .input .defined{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 128px 0px;
+        }
+
+        #update_op .input .magic{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 160px 0px;
+        }
+
+        #update_op .input .a_time{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 192px 0px;
+        }
+
+        #update_op .input .s_cost{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 224px 0px;
+        }
+
+        #update_op .input .blocked{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 256px 0px;
+        }
+        #update_op .input .between{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 288px 0px;
+        }
+
+        #update_op .input button{
+            width:100px;
+            height:20px;
+            position: absolute;
+            margin: 330px 50px;
+        }
+
+        #delete_op {
+            width:220px;
+            height:500px;
+            position: absolute;
+            margin: 50px 950px;
+            background-color: white;
+        }
+        #delete_op .title{
+            width:150px;
+            height: 50px;
+            position: absolute;
+            margin: 20px 60px;
+            font-size:20px;
+        }
+        #delete_op .input{
+            width:200px;
+            height: 350px;
+            position: absolute;
+            margin: 100px 5px;
+        }
+        #delete_op .input .name{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+        #delete_op .input button{
+            width:100px;
+            height:20px;
+            position: absolute;
+            margin: 50px 50px;
+        }
+
+        #add_zh {
+            width:220px;
+            height:500px;
+            position: absolute;
+            margin: 620px 350px;
+            background-color: white;
+        }
+        #add_zh .title{
+            width:150px;
+            height: 50px;
+            position: absolute;
+            margin: 20px 60px;
+            font-size:20px;
+        }
+        #add_zh .input{
+            width:200px;
+            height: 350px;
+            position: absolute;
+            margin: 100px 5px;
+        }
+
+        #add_zh .input .id{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: -30px 0px;
+        }
+
+        #add_zh .input .name{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+
+        #add_zh .input .level{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 32px 0px;
+        }
+
+        #add_zh .input .power{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 64px 0px;
+        }
+
+        #add_zh .input .pace{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 96px 0px;
+        }
+
+        #add_zh .input .health{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 128px 0px;
+        }
+
+        #add_zh .input .attack{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 160px 0px;
+        }
+
+        #add_zh .input .defined{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 192px 0px;
+        }
+
+        #add_zh .input .magic{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 224px 0px;
+        }
+
+
+        #add_zh .input button{
+            width:100px;
+            height:20px;
+            position: absolute;
+            margin: 270px 50px;
+        }
+
+        #update_zh {
+            width:220px;
+            height:500px;
+            position: absolute;
+            margin: 620px 650px;
+            background-color: white;
+        }
+        #update_zh .title{
+            width:150px;
+            height: 50px;
+            position: absolute;
+            margin: 20px 60px;
+            font-size:20px;
+        }
+        #update_zh .input{
+            width:200px;
+            height: 350px;
+            position: absolute;
+            margin: 100px 5px;
+        }
+
+        #update_zh .input .name{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+
+        #update_zh .input .level{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 32px 0px;
+        }
+
+        #update_zh .input .power{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 64px 0px;
+        }
+
+        #update_zh .input .pace{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 96px 0px;
+        }
+
+        #update_zh .input .health{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 128px 0px;
+        }
+
+        #update_zh .input .attack{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 160px 0px;
+        }
+
+        #update_zh .input .defined{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 192px 0px;
+        }
+
+        #update_zh .input .magic{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 224px 0px;
+        }
+
+
+        #update_zh .input button{
+            width:100px;
+            height:20px;
+            position: absolute;
+            margin: 270px 50px;
+        }
+
+        #delete_zh {
+            width:220px;
+            height:500px;
+            position: absolute;
+            margin: 620px 950px;
+            background-color: white;
+        }
+        #delete_zh .title{
+            width:150px;
+            height: 50px;
+            position: absolute;
+            margin: 20px 60px;
+            font-size:20px;
+        }
+        #delete_zh .input{
+            width:200px;
+            height: 350px;
+            position: absolute;
+            margin: 100px 5px;
+        }
+        #delete_zh .input .name{
+            width:200px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+        #delete_zh .input button{
+            width:100px;
+            height:20px;
+            position: absolute;
+            margin: 50px 50px;
+        }
+
+        #div2 {
+            width:100px;
+            height:100px;
+            position: fixed;
+            margin: 590px 1400px;
+        }
+
+        #div2 img{
+            width:100px;
+            height:100px;
+            position: absolute;
+            margin:0px 0px;
+        }
+
+        #mid_button1 {
+            width:100px;
+            height:30px;
+            position: absolute;
+            margin: 100px 130px;
+        }
+
+        #mid_button1 button {
+            width:100px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+
+        #mid_button2 {
+            width:100px;
+            height:30px;
+            position:absolute;
+            margin: 100px 1280px;
+        }
+
+        #mid_button2 button {
+            width:100px;
+            height:30px;
+            position: absolute;
+            margin: 0px 0px;
+        }
+
+        #mid_right {
+            width: 200px;
+            height: 1000px;
+            position: absolute;
+            margin: 150px 1230px;
+            display:none;
+        }
+
+        #mid_right .pic1 {
+            width:200px;
+            height:200px;
+            position: absolute;
+            margin:0px 0px;
+        }
+
+        #mid_right .pic2 {
+            width:200px;
+            height:200px;
+            position: absolute;
+            margin: 250px 0px;
+        }
+
+        #mid_right .pic3 {
+            width:200px;
+            height:200px;
+            position: absolute;
+            margin: 500px 0px;
+        }
+
+        #mid_left {
+            width: 200px;
+            height: 1000px;
+            position: absolute;
+            margin: 150px 80px;
+            display:none;
+        }
+
+        #mid_left .pic1 {
+            width:200px;
+            height:200px;
+            position: absolute;
+            margin:0px 0px;
+        }
+
+        #mid_left .pic2 {
+            width:200px;
+            height:200px;
+            position: absolute;
+            margin: 250px 0px;
+        }
+
+        #mid_left .pic3 {
+            width:200px;
+            height:200px;
+            position: absolute;
+            margin: 500px 0px;
+        }
+
+    </style>
+</head>
+
+
+<body background='/static/black-bg.jpg' style=" background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+
+<div id="mid_button1">
+    <button>表情包彩蛋</button>
+</div>
+
+<div id="mid_button2">
+    <button>表情包彩蛋</button>
+</div>
+
+<div id="mid_left">
+    <img class="pic1" src="/static/kaibao.gif" alt="">
+    <img class="pic2" src="/static/meier.gif" alt="">
+    <img class="pic3" src="/static/baimian.gif" alt="">
+</div>
+
+<div id="mid_right">
+    <img class='pic1' src="/static/zaolu.gif" alt="">
+    <img class='pic2' src="/static/keerbai.gif" alt="">
+    <img class='pic3' src="/static/maomaotou.gif" alt="">
+</div>
+<div id="add_op">
+    <div class="title">添加干员</div>
+    <div class="input">
+        <input class="id" type="text" placeholder="id">
+        <input class="name" type="text" placeholder="姓名">
+        <input class="place" type="text" placeholder="种族">
+        <input class="health" type="text" placeholder="初始生命">
+        <input class="attack" type="text" placeholder="初始攻击">
+        <input class="defined" type="text" placeholder="初始防御">
+        <input class="magic" type="text" placeholder="初始魔抗">
+        <input class="a_time" type="text" placeholder="再部署时间">
+        <input class="s_cost" type="text" placeholder="初始费用">
+        <input class="blocked" type="text" placeholder="初始阻挡">
+        <input class="between" type="text" placeholder="攻击间隔">
+        <button>确认</button>
+    </div>
+</div>
+
+<div id="update_op">
+    <div class="title">更新干员数据</div>
+    <div class="input">
+        <input class="name" type="text" placeholder="姓名">
+        <input class="place" type="text" placeholder="种族">
+        <input class="health" type="text" placeholder="初始生命">
+        <input class="attack" type="text" placeholder="初始攻击">
+        <input class="defined" type="text" placeholder="初始防御">
+        <input class="magic" type="text" placeholder="初始魔抗">
+        <input class="a_time" type="text" placeholder="再部署时间">
+        <input class="s_cost" type="text" placeholder="初始费用">
+        <input class="blocked" type="text" placeholder="初始阻挡">
+        <input class="between" type="text" placeholder="攻击间隔">
+        <button>确认</button>
+    </div>
+</div>
+
+<div id="delete_op">
+    <div class="title">删除干员数据</div>
+    <div class="input">
+        <input class="name" type="text" placeholder="姓名">
+        <button>确认</button>
+    </div>
+</div>
+
+<div id="add_zh">
+    <div class="title">添加敌人</div>
+    <div class="input">
+        <input class="id" type="text" placeholder="id">
+        <input class="name" type="text" placeholder="名称">
+        <input class="level" type="text" placeholder="地位">
+        <input class="power" type="text" placeholder="能力">
+        <input class="pace" type="text" placeholder="种族">
+        <input class="health" type="text" placeholder="耐久">
+        <input class="attack" type="text" placeholder="攻击力">
+        <input class="defined" type="text" placeholder="防御力">
+        <input class="magic" type="text" placeholder="魔法抗性">
+        <button>确认</button>
+    </div>
+</div>
+
+<div id="update_zh">
+    <div class="title">更新敌人数据</div>
+    <div class="input">
+        <input class="name" type="text" placeholder="名称">
+        <input class="level" type="text" placeholder="地位">
+        <input class="power" type="text" placeholder="能力">
+        <input class="pace" type="text" placeholder="种族">
+        <input class="health" type="text" placeholder="耐久">
+        <input class="attack" type="text" placeholder="攻击力">
+        <input class="defined" type="text" placeholder="防御力">
+        <input class="magic" type="text" placeholder="魔法抗性">
+        <button>确认</button>
+    </div>
+</div>
+
+<div id="delete_zh">
+    <div class="title">删除敌人数据</div>
+    <div class="input">
+        <input class="name" type="text" placeholder="名称">
+        <button>确认</button>
+    </div>
+</div>
+
+<div id="div2" style="z-index:999997">
+    <img src="/static/back.jpg" alt="" >
+</div>
+
+</body>
+<script>
+
+    $('#mid_button1 button').click(function () {
+        $('#mid_left').slideDown();
+    }).dblclick(function () {
+        $('#mid_left').slideUp();
+    })
+
+    $('#mid_button2 button').click(function () {
+        $('#mid_right').slideDown();
+    }).dblclick(function () {
+        $('#mid_right').slideUp();
+    })
+
+    $('#div2 img').click(function () {
+        window.location.href='/home_page/home_page';
+    });
+    $('#add_op .input button').click(function () {
+        $.ajax({
+            url:'/manager/add_op',
+            type:'post',
+            dataType:'json',
+            data:{
+                id:$('#add_op .input .id').val(),
+                name:$('#add_op .input .name').val(),
+                place:$('#add_op .input .place').val(),
+                health:$('#add_op .input .health').val(),
+                attack:$('#add_op .input .attack').val(),
+                defined:$('#add_op .input .defined').val(),
+                magic:$('#add_op .input .magic').val(),
+                a_time:$('#add_op .input .a_time').val(),
+                s_cost:$('#add_op .input .s_cost').val(),
+                blocked:$('#add_op .input .blocked').val(),
+                between:$('#add_op .input .between').val(),
+            },
+            success:function(res){
+                console.log(res);
+                alert(res.data);
+            }
+        })
+    })
+
+    $('#update_op .input button').click(function () {
+        $.ajax({
+            url:'/manager/update_op',
+            type:'post',
+            dataType:'json',
+            data:{
+                name:$('#update_op .input .name').val(),
+                place:$('#update_op .input .place').val(),
+                health:$('#update_op .input .health').val(),
+                attack:$('#update_op .input .attack').val(),
+                defined:$('#update_op .input .defined').val(),
+                magic:$('#update_op .input .magic').val(),
+                a_time:$('#update_op .input .a_time').val(),
+                s_cost:$('#update_op .input .s_cost').val(),
+                blocked:$('#update_op .input .blocked').val(),
+                between:$('#update_op .input .between').val(),
+            },
+            success:function(res){
+                console.log(res);
+                alert(res.data);
+            }
+        })
+    })
+
+    $('#delete_op .input button').click(function () {
+        $.ajax({
+            url:'/manager/delete_op',
+            type:'post',
+            dataType:'json',
+            data:{
+                name:$('#delete_op .input .name').val(),
+            },
+            success:function(res){
+                console.log(res);
+                alert(res.data);
+            }
+        })
+    })
+
+    $('#add_zh .input button').click(function () {
+        $.ajax({
+            url:'/manager/add_zh',
+            type:'post',
+            dataType:'json',
+            data:{
+                id:$('#add_zh .input .id').val(),
+                name:$('#add_zh .input .name').val(),
+                level:$('#add_zh .input .level').val(),
+                power:$('#add_zh .input .power').val(),
+                pace:$('#add_zh .input .pace').val(),
+                health:$('#add_zh .input .health').val(),
+                attack:$('#add_zh .input .attack').val(),
+                defined:$('#add_zh .input .defined').val(),
+                magic:$('#add_zh .input .magic').val(),
+            },
+            success:function(res){
+                console.log(res);
+                alert(res.data);
+            }
+        })
+    })
+
+    $('#update_zh .input button').click(function () {
+        $.ajax({
+            url:'/manager/update_zh',
+            type:'post',
+            dataType:'json',
+            data:{
+                name:$('#update_zh .input .name').val(),
+                level:$('#update_zh .input .level').val(),
+                power:$('#update_zh .input .power').val(),
+                pace:$('#update_zh .input .pace').val(),
+                health:$('#update_zh .input .health').val(),
+                attack:$('#update_zh .input .attack').val(),
+                defined:$('#update_zh .input .defined').val(),
+                magic:$('#update_zh .input .magic').val(),
+            },
+            success:function(res){
+                console.log(res);
+                alert(res.data);
+            }
+        })
+    })
+    $('#delete_zh .input button').click(function () {
+        $.ajax({
+            url:'/manager/delete_zh',
+            type:'post',
+            dataType:'json',
+            data:{
+                name:$('#delete_zh .input .name').val(),
+            },
+            success:function(res){
+                console.log(res);
+                alert(res.data);
+            }
+        })
+    })
+
+</script>
+
+</html>

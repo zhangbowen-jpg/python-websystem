@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分析图表</title>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/echarts.min.js"></script>
+    <style>
+        #box1 {
+            width:1500px;
+            height: 500px;
+            position: absolute;
+            background-color: white;
+        }
+        #health {
+            width:380px;
+            height:50px;
+            position: absolute;
+            margin: 510px 570px;
+            font-size:40px;
+            color:white;
+        }
+
+        #box2 {
+            width:1500px;
+            height: 500px;
+            position: absolute;
+            background-color: white;
+            margin: 650px 0px;
+        }
+        #attack {
+            width:380px;
+            height:50px;
+            position: absolute;
+            margin: 1160px 570px;
+            font-size:40px;
+            color:white;
+        }
+        #box3 {
+            width:1500px;
+            height: 500px;
+            position: absolute;
+            background-color: white;
+            margin: 1310px 0px;
+        }
+        #defined {
+            width:380px;
+            height:50px;
+            position: absolute;
+            margin: 1820px 570px;
+            font-size:40px;
+            color:white;
+        }
+        #box4 {
+            width:1500px;
+            height: 500px;
+            position: absolute;
+            background-color: white;
+            margin: 1970px 0px;
+        }
+        #magic {
+            width:450px;
+            height:50px;
+            position: absolute;
+            margin: 2480px 560px;
+            font-size:40px;
+            color:white;
+        }
+
+        #div2 {
+            width:100px;
+            height:100px;
+            position: fixed;
+            margin: 590px 1400px;
+        }
+
+        #div2 img{
+            width:100px;
+            height:100px;
+            position: absolute;
+            margin:0px 0px;
+        }
+
+    </style>
+</head>
+<body background='/static/black-bg.jpg' style="background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+<div id="div2" style="z-index:999997">
+    <img src="/static/back.jpg" alt="" >
+</div>
+<div id="box1"></div>
+<div id="health">干员生命值对比图表</div>
+<div id="box2"></div>
+<div id="attack">干员攻击力对比图表</div>
+<div id="box3"></div>
+<div id="defined">干员防御力对比图表</div>
+<div id="box4"></div>
+<div id="magic">干员法术抗性对比图表</div>
+</body>
+<script>
+    $('#div2 img').click(function () {
+        window.location.href='/home_page/home_page';
+    });
+    var mycharts1=echarts.init(document.getElementById('box1'));
+    var mycharts2=echarts.init(document.getElementById('box2'));
+    var mycharts3=echarts.init(document.getElementById('box3'));
+    var mycharts4=echarts.init(document.getElementById('box4'));
+     $.ajax({
+         url: '/lsql/operator_health_echart',
+         type: 'get',
+         dataType: 'json',
+         success:function (res) {
+             console.log(res);
+             option = {
+                 xAxis: {
+                     type: 'category',
+                     data: res.id,
+                     name:'序号',
+                 },
+                 yAxis: {
+                     type: 'value',
+                     name:'数值',
+
+                 },
+                 series: [{
+                     data: res.health,
+                     type: 'bar',
+                     showBackground: true,
+                     backgroundStyle: {
+                         color: 'rgba(220, 220, 220, 0.8)'
+                     }
+                 }]
+             };
+             mycharts1.setOption(option);
+         }
+     });
+     $.ajax({
+         url: '/lsql/operator_attack_echart',
+         type: 'get',
+         dataType: 'json',
+         success: function (res) {
+             console.log(res);
+             option = {
+                 xAxis: {
+                     type: 'category',
+                     data: res.id,
+                     name:'序号',
+                 },
+                 yAxis: {
+                     type: 'value',
+                     name:'数值',
+
+                 },
+                 series: [{
+                     data: res.attack,
+                     type: 'bar',
+                     showBackground: true,
+                     backgroundStyle: {
+                         color: 'rgba(220, 220, 220, 0.8)'
+                     }
+                 }]
+             };
+             mycharts2.setOption(option);
+         }
+     });
+     $.ajax({
+         url: '/lsql/operator_defined_echart',
+         type: 'get',
+         dataType: 'json',
+         success: function (res) {
+             console.log(res);
+             option = {
+                 xAxis: {
+                     type: 'category',
+                     data: res.id,
+                     name:'序号',
+                 },
+                 yAxis: {
+                     type: 'value',
+                     name:'数值',
+
+                 },
+                 series: [{
+                     data: res.defined,
+                     type: 'bar',
+                     showBackground: true,
+                     backgroundStyle: {
+                         color: 'rgba(220, 220, 220, 0.8)'
+                     }
+                 }]
+             };
+             mycharts3.setOption(option);
+         }
+     });
+     $.ajax({
+         url: '/lsql/operator_magic_echart',
+         type: 'get',
+         dataType: 'json',
+         success: function (res) {
+             console.log(res);
+             option = {
+                 xAxis: {
+                     type: 'category',
+                     data: res.id,
+                     name:'序号',
+                 },
+                 yAxis: {
+                     type: 'value',
+                     name:'数值',
+
+                 },
+                 series: [{
+                     data: res.magic,
+                     type: 'bar',
+                     showBackground: true,
+                     backgroundStyle: {
+                         color: 'rgba(220, 220, 220, 0.8)'
+                     }
+                 }]
+             };
+             mycharts4.setOption(option);
+         }
+     });
+</script>
+</html>
